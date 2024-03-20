@@ -1,0 +1,6 @@
+<div class="custom-combobox-container">
+  <select class="custom-combobox" (change)="updateValue($event)">
+    <option value="" disabled selected>{{ placeholder }}</option>
+    <option *ngFor="let option of options" [value]="option.codigo" [selected]="option.codigo === value">{{ option.descripcion }}</option>
+  </select>
+</div>

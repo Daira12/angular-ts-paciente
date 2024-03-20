@@ -1,0 +1,44 @@
+<div class="container">
+
+<form (submit)="submitForm(true)" class="form-container">
+  <div class="input-row">
+    <div class="input-container">
+      <app-combobox [options]="tipoDocumentos" [placeholder]="'Tipo de Documento'" [(ngModel)]="formData.tipoDocumento" name="tipoDocumento"></app-combobox>
+    </div>
+    <div class="input-container">
+      <app-input (ngModelChange)="validateNumeroDocumento($event)" [placeholder]="'Nro Documento'" [(ngModel)]="formData.numeroDocumento" name="numeroDocumento"></app-input>
+      <span class="valid-feedback" *ngIf="isNumeroDocumentoValid">Número válido</span>
+    <span class="invalid-feedback" *ngIf="!isNumeroDocumentoValid">Número inválido</span>
+ </div>
+    <div class="input-container">
+      <app-input (ngModelChange)="validateNombre($event)" [placeholder]="'Nombres'" [(ngModel)]="formData.nombres" name="nombres"></app-input>
+      <span class="valid-feedback" *ngIf="nombreValido">Nombre válido</span>
+      <span class="invalid-feedback" *ngIf="!nombreValido ">Nombre inválido</span>
+    </div>
+    <div class="input-container">
+      <app-input (ngModelChange)="validateApellido($event)" [placeholder]="'Apellidos'" [(ngModel)]="formData.apellidos" name="apellidos"></app-input>
+      <span class="valid-feedback" *ngIf="apellidoValido">Apellido válido</span>
+      <span class="invalid-feedback" *ngIf="!apellidoValido">Apellido inválido</span>
+    </div>
+  </div>
+  <div class="button-container">
+    <app-button [buttonText]="'Consultar'" (click)="submitForm(true)"  type="button"  [redirectUrl]="null"></app-button>
+    <app-button [buttonText]="'Limpiar'" (click)="submitForm(false)"  [redirectUrl]="null"></app-button> <!-- Botón para limpiar campos -->
+  </div>
+</form>
+
+<div class="link-container">
+  <a href="/crear-paciente" (click)="eliminarCookies()">Registrar Aquí</a>
+</div>
+
+<div class="app-table-container">
+  <!-- <app-table 
+    [dynamicColumns]="dynamicColumns1" 
+    [displayColumnNames]="displayColNames1"
+    [dataToDisplay]="articleData$">
+  </app-table>
+</div> -->
+<app-tabla [data]="tablaData"></app-tabla>
+</div>
+
+</div>

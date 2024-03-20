@@ -1,0 +1,133 @@
+/* table-data.component.css */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #dee2e6;
+    background-color: #fff; /* Color de fondo blanco */
+  }
+  
+  thead {
+    background-color: #000;
+    color: #fff; /* Letras blancas */
+  }
+  
+  th, td {
+    padding: 8px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  th {
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:hover {
+    background-color: #e9ecef;
+    cursor: pointer; /* Cambia el cursor al pasar el mouse por una fila */
+  }
+  
+  button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .edit-button, .delete-button {
+    background-color: #28a745; /* Verde */
+  }
+  
+  .edit-button:hover, .delete-button:hover {
+    background-color: #218838; /* Verde oscuro */
+  }
+  .custom-button {
+    padding: 20px 1px;
+  }
+
+  th {
+    text-align: center; /* Centra el texto en las cabeceras */
+    text-transform: uppercase; /* Convierte el texto en mayúsculas */
+  }
+  th, td {
+    border: 1px solid #f1efef; /* Agrega bordes a todas las celdas */
+  }
+  td {
+    text-align: center; /* Centra el contenido dentro de las celdas */
+  }
+
+  th {
+    font-weight: 500;
+  }
+  
+  thead th {
+    padding: 12px; /* Ajusta el padding para hacer el encabezado un poco más ancho */
+  }
+
+  /* table-data.component.css */
+.pagination-buttons {
+    display: flex;
+    justify-content: space-between; /* Coloca los botones uno en cada lado */
+    margin-top: 10px;
+  }
+  
+  .pagination-buttons button {
+    padding: 8px 12px;
+    background-color: transparent; /* Fondo transparente */
+    color: #000; /* Color de texto negro */
+    border: 1px solid #000; /* Borde negro */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+  }
+  
+  .pagination-buttons button:hover {
+    background-color: #000; /* Fondo negro al pasar el mouse */
+    color: #fff; /* Color de texto blanco al pasar el mouse */
+  }
+  
+
+  /* table-data.component.css */
+
+/* Estilos para el botón de editar */
+.edit-button {
+  padding: 5px 10px; /* Menos espacio alrededor del texto */
+  background-color: #fff; /* Fondo blanco */
+  color: #000000; /* Letra amarilla */
+  border: 1px solid #000000; /* Borde amarillo */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.edit-button:hover {
+  background-color: rgb(0, 0, 0); /* Fondo amarillo al pasar el mouse */
+  color: #fff; /* Letra blanca al pasar el mouse */
+}
+
+/* Estilos para el botón de eliminar */
+.delete-button {
+  padding: 5px 10px; /* Menos espacio alrededor del texto */
+  background-color: #fff; /* Fondo blanco */
+  color: #f00; /* Letra roja */
+  border: 1px solid #f00; /* Borde rojo */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.delete-button:hover {
+  background-color: #f00; /* Fondo rojo al pasar el mouse */
+  color: #fff; /* Letra blanca al pasar el mouse */
+}

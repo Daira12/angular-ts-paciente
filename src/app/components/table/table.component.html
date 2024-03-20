@@ -1,0 +1,14 @@
+<h1>Vlida</h1>
+<div class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container *ngFor="let colName of dynamicColumns; index as i;" [matColumnDef]="colName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{displayColumnNames[i]}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[colName]}} </td>
+
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="dynamicColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: dynamicColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[3, 5, 8]" showFirstLastButtons></mat-paginator>
+</div>

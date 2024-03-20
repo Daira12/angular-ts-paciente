@@ -1,0 +1,119 @@
+.container {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 80%; 
+    margin: 0 auto; 
+    margin-bottom: 20px; 
+  }
+
+  .input-row {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+  }
+  
+  .input-container {
+    flex-basis: calc(240px - 15px);
+    margin-bottom: 30px; 
+    margin-right: 10px; 
+  }
+
+  .wide-input {
+    width: calc(530px - 15px);
+    margin-right: 5px;
+  }
+
+  .wide-input-ubigeo {
+    width: calc(270px - 15px);
+    margin-right: -20px;
+  }
+
+
+  .button-container {
+    margin-top: 30px; 
+    display: flex; 
+    justify-content: flex-end;
+    gap: 30px; 
+  }
+  
+  .app-table-container {
+    width: 100%; 
+    max-width: 80%; 
+    margin: 20px auto; 
+  }
+  
+  
+  .app-table {
+    width: 100%;
+    border-collapse: collapse; 
+  }
+  
+  .app-table td, .app-table th {
+    border: 1px solid #ddd;
+    padding: 8px; 
+    text-align: left; 
+  }
+  
+  .app-table th {
+    background-color: #f2f2f2; 
+  }
+  
+  .app-table tr:nth-child(odd) {
+    background-color: #f9f9f9; /
+  }
+  
+  .app-table tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  .link-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px; 
+    width: 80%; 
+  }
+  @media (max-width: 768px) {
+    .input-row {
+      flex-direction: column; 
+    }
+    
+    .input-container {
+      flex-basis: 100%;
+    }
+  
+  .button-container {
+    display: flex; 
+    justify-content: center; 
+    gap: 10px;
+  }
+  
+  .app-button {
+    flex: 1;
+  }
+  
+  }
+  h1 {
+    font-size: 24px; 
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase; 
+    border-bottom: 2px solid #333; 
+    padding-bottom: 5px; 
+  }
+
+  .valid-feedback {
+    color: green;
+  }
+  
+  .invalid-feedback {
+    color: red;
+  }
+  

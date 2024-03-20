@@ -1,0 +1,119 @@
+<div class="container">
+    <form (submit)="submitForm()" class="form-container">
+        <h1>Datos del Paciente</h1>
+        <div class="input-row">
+          <div  class="input-container">
+            <app-combobox [options]="combos.tipoDocumento" [placeholder]="'Tipo de Documento'" [(ngModel)]="paciente.tipo_documento" name="tipoDocumentoPaciente"></app-combobox>
+          </div>
+          <div  class="input-container">
+            <app-input (ngModelChange)="validateNumeroDocumento($event)" [placeholder]="'Nro Documento'" [(ngModel)]="paciente.numero_documento" name="numeroDocumentoPaciente"></app-input>
+            <span class="valid-feedback" *ngIf="isNumeroDocumentoValido">Número Documento válido</span>
+            <span class="invalid-feedback" *ngIf="!isNumeroDocumentoValido">Número Documento inválido</span>        
+          </div>
+          <div   class="input-container">
+            <app-input (ngModelChange)="validateApellidoPaterno($event)" [placeholder]="'Apellidos Paterno'" [(ngModel)]="paciente.ape_paterno" name="apellidoPaternoPaciente"></app-input>
+            <span class="valid-feedback" *ngIf="apellidoPaternoValido">Apellido Paterno válido</span>
+            <span class="invalid-feedback" *ngIf="!apellidoPaternoValido">Apellido Paterno inválido</span>
+          </div>
+          <div class="input-container">
+            <app-input (ngModelChange)="validateApellidoMaterno($event)" [placeholder]="'Apellidos Materno'" [(ngModel)]="paciente.ape_materno" name="apellidoMaternoPaciente"></app-input>
+            <span class="valid-feedback" *ngIf="apellidoMaternoValido">Apellido Materno válido</span>
+            <span class="invalid-feedback" *ngIf="!apellidoMaternoValido">Apellido Materno inválido</span>
+          </div>
+          <div class="input-container">
+            <app-input (ngModelChange)="validateNombre($event)" [placeholder]="'Nombres'" [(ngModel)]="paciente.nombres" name="nombresPaciente"></app-input>
+            <span class="valid-feedback" *ngIf="nombreValido">Nombre válido</span>
+            <span class="invalid-feedback" *ngIf="!nombreValido ">Nombre inválido</span>
+          </div>
+          <div   class="input-container">
+            <app-combobox [options]="combos.sexo" [placeholder]="'Sexo'" [(ngModel)]="paciente.id_sexo" name="sexoPaciente"></app-combobox>
+          </div>
+          <div class="input-container">
+            <app-input (ngModelChange)="seleccionaDatePaciente($event)" [type]="'date'" [placeholder]="'Fecha Nacimiento'" [(ngModel)]="paciente.fecha_nacimiento" name="fechaNacimientoPaciente" ></app-input>
+          </div>
+          <div class="input-container">
+           <app-input [bloquearInput]="true" [placeholder]="'Edad'" [(ngModel)]="paciente.edad" name="edadPaciente"></app-input>
+         </div>
+          <div class="input-container">
+            <app-input (ngModelChange)="validateLugarNacimiento($event)"  [placeholder]="'Lugar Nacimiento'" [(ngModel)]="paciente.lugar_nacimiento" name="lugarNacimientoPaciente"></app-input>
+            <span class="valid-feedback" *ngIf="lugarNaciemintoValidoPaciente">Nombre válido</span>
+            <span class="invalid-feedback" *ngIf="!lugarNaciemintoValidoPaciente ">Nombre inválido</span>
+           </div>
+          <div class="input-container">
+            <app-input (ngModelChange)="validateDireccion($event)" [placeholder]="'Dirección'" [(ngModel)]="paciente.direccion" name="direccionPaciente"></app-input>
+            <span class="valid-feedback" *ngIf="direccionValidoPaciente">Nombre válido</span>
+            <span class="invalid-feedback" *ngIf="!direccionValidoPaciente ">Direccion invalida</span>
+          </div>
+          <div class="input-container">
+            <app-combobox  (change)="updatePacienteDepartamento($event)" [options]="combos.departamento" [placeholder]="'Departamento'" [(ngModel)]="paciente.cod_departamento" name="departamentoPaciente"></app-combobox>
+          </div>
+          <div class="input-container">
+            <app-combobox  (change)="updatePacienteProvincia($event)" [options]="combos.provincia" [placeholder]="'Provincia'" [(ngModel)]="paciente.cod_provincia" name="provinciaPaciente"></app-combobox>
+          </div>
+          <div class="input-container">
+            <app-combobox  [options]="combos.distrito" [placeholder]="'Distrito'" [(ngModel)]="paciente.cod_distrito" name="distritoPaciente"></app-combobox>
+          </div>
+        </div>
+        <br><br><hr/><br><br>
+        <h1>Datos del Acompañante</h1>
+        <div class=" input-row">
+            <div class="input-container">
+                <app-combobox [options]="combos.tipoDocumento" [placeholder]="'Tipo de Documento'" [(ngModel)]="paciente.acompanante.tipo_documento" name="tipoDocumentoAcompanate"></app-combobox>
+              </div>
+              <div class="input-container">
+                <app-input  (ngModelChange)="validateNumDocAcompanante($event)" [placeholder]="'Nro Documento'" [(ngModel)]="paciente.acompanante.numero_documento" name="numeroDocumentoAcompanate"></app-input>
+                <span class="valid-feedback" *ngIf="nroDocumentoAcompanante">Número Documento válido</span>
+                <span class="invalid-feedback" *ngIf="!nroDocumentoAcompanante">Número Documento inválido</span>        
+              </div>
+              <div class="input-container">
+                <app-input (ngModelChange)="validateapePaternoAcompanante($event)" [placeholder]="'Apellidos Paterno'" [(ngModel)]="paciente.acompanante.ape_paterno" name="apellidoPaternoAcompanate"></app-input>
+                <span class="valid-feedback" *ngIf="apePaternoAcompanante">Apellido Paterno válido</span>
+                <span class="invalid-feedback" *ngIf="!apePaternoAcompanante">Apellido Paterno inválido</span>        
+              </div>
+              <div class="input-container">
+                <app-input (ngModelChange)="validateapeMaternoAcompanante($event)" [placeholder]="'Apellidos Materno'" [(ngModel)]="paciente.acompanante.ape_materno" name="apellidoMaternoAcompanate"></app-input>
+                <span class="valid-feedback" *ngIf="apeMaternoAcompanante">Apellido Materno válido</span>
+                <span class="invalid-feedback" *ngIf="!apeMaternoAcompanante">Apellido Materno inválido</span>        
+             
+              </div>
+              <div class="input-container">
+                <app-input (ngModelChange)="validatenombresAcompanante($event)" [placeholder]="'Nombres'" [(ngModel)]="paciente.acompanante.nombres" name="nombresAcompanate"></app-input>
+                <span class="valid-feedback" *ngIf="nombresAcompanante">Nombres válido</span>
+                <span class="invalid-feedback" *ngIf="!nombresAcompanante">Nombres inválido</span>        
+             
+            </div>
+              <div class="input-container">
+                <app-input (ngModelChange)="seleccionaDateAcompanate($event)" [type]="'date'" [placeholder]="'Fecha Nacimiento'" [(ngModel)]="paciente.acompanante.fecha_nacimiento" name="fechaNacimientoAcompanate"></app-input>
+                 </div>
+              <div class="input-container">
+               <app-input [bloquearInput]="true" [placeholder]="'Edad'" [(ngModel)]="paciente.acompanante.edad" name="edadAcompanate"></app-input>
+             </div>
+              <div class="input-container">
+                <app-combobox  [options]="combos.parentesco" [placeholder]="'Parentesco'" [(ngModel)]="paciente.acompanante.parentesco" name="parentescoAcompanate"></app-combobox>
+              </div>
+              <div class="input-container">
+                <app-input (ngModelChange)="validatetelefonoAcompanante($event)"  class="wide-input" [placeholder]="'Telefono contacto'" [(ngModel)]="paciente.acompanante.telf_contacto" name="telfContactoAcompanate"></app-input>
+                <span class="valid-feedback" *ngIf="telefonoAcompanante">Teléfono válido</span>
+                <span class="invalid-feedback" *ngIf="!telefonoAcompanante">Teléfono inválido</span>        
+              </div>
+              <div class="input-container">
+                <app-input (ngModelChange)="validatedireccionAcompanante($event)" class="wide-input" [placeholder]="'Dirección'" [(ngModel)]="paciente.acompanante.direccion" name="direccionAcompanate"></app-input>
+                <span class="valid-feedback" *ngIf="direccionAcompanante">Dirección válido</span>
+                <span class="invalid-feedback" *ngIf="!direccionAcompanante">Dirección inválido</span>        
+              </div>
+              <div class="input-container">
+                <app-combobox class="wide-input-ubigeo" (change)="updateAcompananteDepartamento($event)" [options]="combos.departamento" [placeholder]="'Departamento'" [(ngModel)]="paciente.acompanante.cod_departamento" name="departamentoAcompanate"></app-combobox>
+              </div>
+              <div class="input-container">
+                <app-combobox class="wide-input-ubigeo" (change)="updateAcompananteProvincia($event)" [options]="combos.provincia" [placeholder]="'Provincia'" [(ngModel)]="paciente.acompanante.cod_provincia" name="provinciaAcompanate"></app-combobox>
+              </div>
+              <div class="input-container">
+                <app-combobox class="wide-input-ubigeo" [options]="combos.distrito" [placeholder]="'Distrito'" [(ngModel)]="paciente.acompanante.cod_distrito" name="distritoAcompanate"></app-combobox>
+              </div>
+        </div>
+        <div class="button-container">
+          <app-button [buttonText]="'Crear'" (handleClick)="submitForm()" type="submit" [redirectUrl]="null"></app-button>
+          <app-button [buttonText]="'Cancelar'"  type="button" [redirectUrl]="'/consulta-paciente'"></app-button> <!-- Botón para limpiar campos -->
+        </div>
+      </form>
+</div>

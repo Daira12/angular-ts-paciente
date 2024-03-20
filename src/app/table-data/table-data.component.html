@@ -1,0 +1,34 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Paciente</th>
+      <th>Tipo de Documento</th>
+      <th>Numero de Documento</th>
+      <th>Fecha de Nacimiento</th>
+      <th colspan="2">Acciones</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of getDataForCurrentPage()">
+      <td>{{ item.paciente_id }}</td>
+      <td>{{ item.nombre_completo }}</td>
+      <td>{{ item.des_tipo_documento }}</td>
+      <td>{{ item.numero_documento }}</td>
+      <td>{{ item.fecha_nacimiento }}</td>
+      <td>
+        <button  (click)="editarFila(item)" type="button"  class="edit-button" >Editar</button> 
+      </td>
+      <td>
+        <button   type="button" class="delete-button">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+  
+</table>
+
+
+<div class="pagination-buttons">
+  <button (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1">Anterior</button>
+  <button (click)="currentPage = currentPage + 1" [disabled]="currentPage === getTotalPages()">Siguiente</button>    
+</div>
